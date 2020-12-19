@@ -1,3 +1,22 @@
-.someClass {
+.affairsWrapper {
+    margin-bottom: 15px;
+}
 
+
+.affairWrapper {
+    width: 25%;
+    display: flex;
+}
+
+.affairWrapper * {
+    align-self: center;
+}
+
+.name {
+    width: 30%;
+}
+
+.priority {
+    font-size: 12px;
+    width: 30%;
 }
