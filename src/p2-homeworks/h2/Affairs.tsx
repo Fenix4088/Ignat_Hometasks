@@ -19,13 +19,29 @@ function Affairs(props: AffairsPropsType) {
   ));
 
   const setAll = () => {
-  }; // need to fix
+    props.setFilter('all');
+  };
   const setHigh = () => {
+    props.setFilter('high');
   };
   const setMiddle = () => {
+    props.setFilter('middle');
   };
   const setLow = () => {
+    props.setFilter('low');
   };
+
+
+// TODO: Почему это костыль?
+
+  const filterByPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const btn = e.target as HTMLButtonElement;
+    if (btn.dataset.element) {
+      const currentProperty = btn.dataset.element;
+      props.setFilter(currentProperty);
+    }
+  };
+
 
   return (
     <div>
@@ -37,6 +53,13 @@ function Affairs(props: AffairsPropsType) {
       <button onClick={setHigh}>High</button>
       <button onClick={setMiddle}>Middle</button>
       <button onClick={setLow}>Low</button>
+
+
+      {/*      <button onClick={filterByPriority} data-element="all">All</button>
+      <button onClick={filterByPriority} data-element="high">High</button>
+      <button onClick={filterByPriority} data-element="middle">Middle</button>
+      <button onClick={filterByPriority} data-element="low">Low</button>*/}
+
     </div>
   )
     ;
