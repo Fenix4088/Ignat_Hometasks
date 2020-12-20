@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Affairs from './Affairs';
+import AlternativeAffairs from './AlternativeAffairs';
 
 // types
-export type AffairPriorityType = 'string';
+export type AffairPriorityType = 'middle' | 'high' | 'low';
 export type AffairType = {
   _id: number
   name: string
@@ -28,11 +29,10 @@ export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<Aff
   return affairs.filter((item) => item._id !== _id);
 };
 
+
 function HW2() {
   const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs);
   const [filter, setFilter] = useState<FilterType>('all');
-
-  console.log(affairs); //TODO: Почему вызов происходит два раза?
 
   const filteredAffairs = filterAffairs(affairs, filter);
   const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id));
@@ -41,17 +41,16 @@ function HW2() {
     <div>
       <hr />
       homeworks 2
-
+      {/*TODO: Добавил свой функционал в AlternativeAffairs*/}
+      <AlternativeAffairs
+        data={filteredAffairs}
+        setAffairs={setAffairs}
+      />
       <Affairs
         data={filteredAffairs}
         setFilter={setFilter}
         deleteAffairCallback={deleteAffairCallback}
       />
-
-      <hr />
-      {/*для личного творчества, могу проверить*/}
-      {/*<AlternativeAffairs/>*/}
-      <hr />
     </div>
   );
 }

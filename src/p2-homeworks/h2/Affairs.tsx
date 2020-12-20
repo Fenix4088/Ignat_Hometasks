@@ -1,12 +1,12 @@
 import React from 'react';
 import Affair from './Affair';
-import { AffairType } from './HW2';
+import { AffairType, FilterType } from './HW2';
 import classes from './Affairs.module.css';
 
-type AffairsPropsType = { // need to fix any
+type AffairsPropsType = {
   data: Array<AffairType>
-  setFilter: any //TODO: need to fix any
-  deleteAffairCallback: (_id: number) => void //TODO: need to fix any
+  setFilter: (filterValue: FilterType) => void
+  deleteAffairCallback: (_id: number) => void
 }
 
 function Affairs(props: AffairsPropsType) {
@@ -32,15 +32,18 @@ function Affairs(props: AffairsPropsType) {
   };
 
 
-// TODO: Почему это костыль?
+  // TODO: ИГНАТ, мне сказали, что эта ф-я  - костыль :-( Почему это костыль?
+  // * filterByPriority VS (setAll, setHigh, setMiddle, setLow)
+  // * заревьювай ее, если будет время
+  // * для нее отдельный блок кнопок, ниже оригинальных
 
-/*  const filterByPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const btn = e.target as HTMLButtonElement;
-    if (btn.dataset.element) {
-      const currentProperty = btn.dataset.element;
-      props.setFilter(currentProperty);
-    }
-  };*/
+/*    const filterByPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
+      const btn = e.target as HTMLButtonElement;
+      if (btn.dataset.element) {
+        const currentProperty = btn.dataset.element as FilterType;
+        props.setFilter(currentProperty);
+      }
+    };*/
 
 
   return (
@@ -48,17 +51,18 @@ function Affairs(props: AffairsPropsType) {
       <div className={classes.affairsWrapper}>
         {mappedAffairs}
       </div>
-
       <button className={classes.filterBtn} onClick={setAll}>All</button>
       <button className={classes.filterBtn} onClick={setHigh}>High</button>
       <button className={classes.filterBtn} onClick={setMiddle}>Middle</button>
       <button className={classes.filterBtn} onClick={setLow}>Low</button>
 
 
-      {/*      <button onClick={filterByPriority} data-element="all">All</button>
-      <button onClick={filterByPriority} data-element="high">High</button>
-      <button onClick={filterByPriority} data-element="middle">Middle</button>
-      <button onClick={filterByPriority} data-element="low">Low</button>*/}
+      {/* TODO:filterByPriority buttons*/}
+
+      {/*            <button onClick={filterByPriority} className={classes.filterBtn} data-element="all">All</button>
+      <button onClick={filterByPriority} className={classes.filterBtn} data-element="high">High</button>
+      <button onClick={filterByPriority} className={classes.filterBtn} data-element="middle">Middle</button>
+      <button onClick={filterByPriority} className={classes.filterBtn} data-element="low">Low</button>*/}
 
     </div>
   )

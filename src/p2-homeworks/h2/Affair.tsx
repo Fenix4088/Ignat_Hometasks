@@ -5,7 +5,7 @@ import classes from './Affairs.module.css';
 
 type AffairPropsType = {
   affair: AffairType
-  deleteAffairCallback: any //TODO: need to fix any
+  deleteAffairCallback: (_id: number) => void
 }
 
 function Affair(props: AffairPropsType) {
@@ -19,7 +19,7 @@ function Affair(props: AffairPropsType) {
     <div className={classes.affairWrapper}>
       <div className={classes.name}>{name}</div>
       <div className={classes.priority}>
-        <span className = {`${classes[priority]}`}>{priority}</span>
+        <span className={`${classes[priority]}`}>{priority}</span>
       </div>
       <button className={classes.deleteBtn} onClick={deleteCallback}>X</button>
     </div>
