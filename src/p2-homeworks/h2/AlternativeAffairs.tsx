@@ -32,7 +32,7 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
   };
 
   const inputChangeHandle = (event: React.FormEvent<HTMLInputElement>) => {
-    const { value } = event.currentTarget;
+    let { value } = event.currentTarget;
     setTextInput(value);
   };
 
