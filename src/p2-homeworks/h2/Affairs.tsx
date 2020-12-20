@@ -5,13 +5,13 @@ import classes from './Affairs.module.css';
 
 type AffairsPropsType = { // need to fix any
   data: Array<AffairType>
-  setFilter: any
-  deleteAffairCallback: any
+  setFilter: any //TODO: need to fix any
+  deleteAffairCallback: (_id: number) => void //TODO: need to fix any
 }
 
 function Affairs(props: AffairsPropsType) {
   const mappedAffairs = props.data.map((dataItem: AffairType) => (
-    <Affair // should work
+    <Affair
       key={dataItem._id}
       affair={dataItem}
       deleteAffairCallback={props.deleteAffairCallback}
@@ -34,13 +34,13 @@ function Affairs(props: AffairsPropsType) {
 
 // TODO: Почему это костыль?
 
-  const filterByPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
+/*  const filterByPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
     const btn = e.target as HTMLButtonElement;
     if (btn.dataset.element) {
       const currentProperty = btn.dataset.element;
       props.setFilter(currentProperty);
     }
-  };
+  };*/
 
 
   return (
@@ -49,10 +49,10 @@ function Affairs(props: AffairsPropsType) {
         {mappedAffairs}
       </div>
 
-      <button onClick={setAll}>All</button>
-      <button onClick={setHigh}>High</button>
-      <button onClick={setMiddle}>Middle</button>
-      <button onClick={setLow}>Low</button>
+      <button className={classes.filterBtn} onClick={setAll}>All</button>
+      <button className={classes.filterBtn} onClick={setHigh}>High</button>
+      <button className={classes.filterBtn} onClick={setMiddle}>Middle</button>
+      <button className={classes.filterBtn} onClick={setLow}>Low</button>
 
 
       {/*      <button onClick={filterByPriority} data-element="all">All</button>

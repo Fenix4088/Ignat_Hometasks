@@ -19,8 +19,8 @@ const defaultAffairs: Array<AffairType> = [
   { _id: 5, name: 'html & css', priority: 'middle' }
 ];
 
-// pure helper functions
-export const filterAffairs = (affairs: Array<AffairType>, filter: string): Array<AffairType> => { // need to fix any
+// helper functions
+export const filterAffairs = (affairs: Array<AffairType>, filter: string): Array<AffairType> => {
   if (filter === 'all') return affairs;
   else return affairs.filter(item => item.priority === filter);
 };

@@ -18,7 +18,9 @@ function Affair(props: AffairPropsType) {
   return (
     <div className={classes.affairWrapper}>
       <div className={classes.name}>{name}</div>
-      <div className={classes.priority}>{priority}</div>
+      <div className={classes.priority}>
+        <span className = {`${classes[priority]}`}>{priority}</span>
+      </div>
       <button className={classes.deleteBtn} onClick={deleteCallback}>X</button>
     </div>
 
