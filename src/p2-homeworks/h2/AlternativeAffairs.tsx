@@ -25,6 +25,7 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
     if (textInput.trim() !== '') {
       props.data.push({ _id: id, name: textInput, priority: radioBtn });
       props.setAffairs([...props.data]);
+      setTextInput("");
     } else {
       alert('Enter affair name!');
     }
@@ -46,7 +47,7 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className={classes.inputWrapper}>
-          <input onChange={inputChangeHandle} type="text" />
+          <input onChange={inputChangeHandle} type="text" value={textInput}/>
         </div>
         <div className={classes.checkboxesWrapper}>
           <label className={classes.checkboxWrap}>
