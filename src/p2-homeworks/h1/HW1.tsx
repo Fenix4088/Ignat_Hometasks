@@ -1,5 +1,6 @@
 import React from 'react';
 import Message from './Message';
+import commonStyles from "../../p1-main/m1-ui/u1-app/App.module.css";
 
 export type messageDataTyp = {
   avatar: string
@@ -18,7 +19,7 @@ const messageData = {
 
 function HW1() {
   return (
-    <div>
+    <div className={commonStyles.mb30}>
       <Message
         avatar={messageData.avatar}
         name={messageData.name}
@@ -26,7 +27,6 @@ function HW1() {
         time={messageData.time}
       />
 
-      <hr />
       {/*для личного творчества, могу проверить*/}
       {/*<AlternativeMessage/>*/}
     </div>

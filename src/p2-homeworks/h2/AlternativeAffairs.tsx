@@ -14,7 +14,10 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
   const [textInput, setTextInput] = useState<string>('');
 
   const getId = (arr: Array<AffairType>): number => {
-    return arr[arr.length - 1]._id + 1;
+    if(arr.length) {
+      return arr[arr.length - 1]._id + 1;
+    }
+      return 1;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +28,7 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
     if (textInput.trim() !== '') {
       props.data.push({ _id: id, name: textInput, priority: radioBtn });
       props.setAffairs([...props.data]);
-      setTextInput("");
+      setTextInput("")
     } else {
       alert('Enter affair name!');
     }

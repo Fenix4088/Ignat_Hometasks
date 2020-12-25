@@ -1,7 +1,48 @@
-.someClass {
+.wrapper {
+    position: relative;
+    width: 40%;
+}
 
+.errorMessage {
+    position: absolute;
+    bottom: 112%;
+    font-size: 14px;
+    font-style: italic;
+    color: red;
 }
 
 .error {
     border: 1px solid red;
+}
+
+.validInput {
+    border: 1px solid inherit;
+
+}
+
+.input {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    padding: 8px 4px;
+    border-radius: 10px;
+}
+
+.addBtn {
+    box-shadow:inset 0px 1px 0px 0px #caefab;
+    background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background:#77d42a;
+    border:1px solid #268a16;
+    border-radius: 5px;
+    color:#306108;
+    font-family:Arial;
+    font-size:15px;
+    font-weight: bold;
+    padding:6px 24px;
+
+}
+
+.usersCounter {
+    margin-left: 10px;
+    color: #2858f5;
 }

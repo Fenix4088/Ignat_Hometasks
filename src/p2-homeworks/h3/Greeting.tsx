@@ -1,26 +1,32 @@
 import React from "react";
 import s from "./Greeting.module.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUsers} from "@fortawesome/free-solid-svg-icons";
 
 type GreetingPropsType = {
-    name: any // need to fix any
-    setNameCallback: any // need to fix any
-    addUser: any // need to fix any
-    error: any // need to fix any
-    totalUsers: any // need to fix any
+    name: string
+    setNameCallback: (e: React.ChangeEvent<HTMLInputElement>) => void
+    addUser: () => void
+    error: string
+    totalUsers: number
 }
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers} // деструктуризация пропсов
+    {name, setNameCallback, addUser, error, totalUsers}
 ) => {
-    const inputClass = s.error; // need to fix with (?:)
+    const inputClass = error === "" ? `${s.validInput} ${s.input}` : `${s.error} ${s.input}`;
 
     return (
-        <div>
+        <div className={s.wrapper}>
+            <div className={s.errorMessage}>{error}</div>
             <input value={name} onChange={setNameCallback} className={inputClass}/>
-            <span>{error}</span>
-            <button onClick={addUser}>add</button>
-            <span>{totalUsers}</span>
+            <FontAwesomeIcon icon={faUsers} style={{color: '#2858f5'}}/>
+            <span className={s.usersCounter}>{totalUsers}</span>
+            <div>
+                <button onClick={addUser} className={s.addBtn}>add</button>
+            </div>
+
         </div>
     );
 }

@@ -33,6 +33,10 @@ h1 {
     margin: 0;
 }
 
+h4 {
+    margin-bottom: 10px;
+}
+
 body {
     /*font-family: 'Titillium Web', sans-serif;*/
     /*font-weight: 500;*/
@@ -64,3 +68,9 @@ button {
 textarea {
     resize: none;
 }
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+
