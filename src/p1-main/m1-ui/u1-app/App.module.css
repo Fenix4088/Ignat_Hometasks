@@ -73,4 +73,14 @@ textarea {
     margin-bottom: 30px;
 }
 
+.hw3Wrapper {
+    position: relative;
+}
+
+.modalWrapper {
+    position: absolute;
+    top: -40px;
+    right: 40%;
+}
+
 
