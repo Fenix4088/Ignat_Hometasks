@@ -16,6 +16,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
 
     const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const {value: newName} = e.currentTarget;
+        setError("");
         setName(newName);
     };
 
@@ -32,7 +33,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         }
     };
 
-    const decimalsStarCheck = (string: string): boolean => {
+    const decimalsStarCheck = (name: string): boolean => {
         const regexp = /(^\d+)|(^\s)/g;
         const match = regexp.test(name);
         return match;
