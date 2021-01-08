@@ -10,7 +10,7 @@ type AlternativeAffairsPropsType = {
 function AlternativeAffairs(props: AlternativeAffairsPropsType) {
 
 
-  const [radioBtn, setRadioBtn] = useState<string>('low');
+  const [radioBtn, setRadioBtn] = useState<AffairPriorityType>('low');
   const [textInput, setTextInput] = useState<string>('');
 
   const getId = (arr: Array<AffairType>): number => {
@@ -42,7 +42,10 @@ function AlternativeAffairs(props: AlternativeAffairsPropsType) {
 
   const handleRadioChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
-    setRadioBtn(value);
+
+    setRadioBtn(value as AffairPriorityType);
+
+    // if(value === "high" || value === "middle" || value === "low") {}
   };
 
 

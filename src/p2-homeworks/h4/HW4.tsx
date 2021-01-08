@@ -6,7 +6,7 @@ import SuperCheckbox from "./common/c3-SuperCheckbox/SuperCheckbox";
 
 function HW4() {
     const [text, setText] = useState<string>("");
-    const error = text ? "" : "error";
+    const error = text ? "" : "Fill the form...";
     const showAlert = () => {
         if (error) {
             alert("введите текст...");
@@ -24,24 +24,24 @@ function HW4() {
             homeworks 4
 
             <div className={s.column}>
-                {/*should work (должно работать)*/}
                 <SuperInputText
                     value={text}
                     onChangeText={setText}
                     onEnter={showAlert}
                     error={error}
-                    // className={s.blue} // проверьте, рабоет ли смешивание классов
+                    className={s.blue} // проверьте, рабоет ли смешивание классов
                 />
 
-                {/*should work (должно работать)*/}
                 <SuperButton
                     red // пропсу с булевым значением не обязательно указывать true
                     onClick={showAlert}
+                    className={s.btn}
                 >
                     delete {/*// название кнопки попадёт в children*/}
+
                 </SuperButton>
 
-                {/*should work (должно работать)*/}
+
                 <SuperCheckbox
                     checked={checked}
                     onChangeChecked={setChecked}
@@ -49,16 +49,10 @@ function HW4() {
                     some text {/*// этот текст попадёт в children*/}
                 </SuperCheckbox>
 
-                {/*// onChange тоже должен работать*/}
+
                 <SuperCheckbox checked={checked} onChange={testOnChange}/>
             </div>
 
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeSuperInputText/>*/}
-            {/*<AlternativeSuperButton/>*/}
-            {/*<AlternativeSuperCheckbox/>*/}
-            <hr/>
         </div>
     );
 }
