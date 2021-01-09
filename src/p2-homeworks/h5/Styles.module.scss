@@ -29,6 +29,7 @@
   border-bottom-right-radius: 20px;
   background: rgba(93, 50 , 215, .4);
   transition: all .5s ease;
+  backdrop-filter: blur(10px);
   z-index: 2;
 
 }
