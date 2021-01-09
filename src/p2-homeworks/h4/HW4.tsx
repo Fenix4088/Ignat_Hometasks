@@ -47,6 +47,8 @@ function HW4() {
                     onChangeChecked={setChecked}
                 >
                     some text {/*// этот текст попадёт в children*/}
+
+
                 </SuperCheckbox>
 
 

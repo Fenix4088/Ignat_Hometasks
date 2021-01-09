@@ -1,0 +1,122 @@
+.HW5Container {
+  position: relative;
+}
+
+
+.activeNavItem  {
+  padding: 2px 4px;
+  background: #5c46c6;
+  border-radius: 4px;
+}
+
+.navContainer {
+}
+
+.navWrapper {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  margin: 0 auto;
+  padding: 30px 10px;
+  min-width: 500px;
+  transform: translate(-50%, 0%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: rgba(93, 50 , 215, .4);
+  transition: all .5s ease;
+  z-index: 2;
+
+}
+
+.navWrapper a {
+  position: relative;
+  margin-right: 35px;
+  font-weight: 600;
+  color: white;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all .2s ease-in;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    width: 120%;
+    left: -5px;
+  }
+}
+
+.wrapper {
+  position: fixed;
+  top: 5px;
+  right: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10;
+
+}
+
+.burgerMenuCommon {
+  position: absolute;
+  top: 9px;
+  left: -2px;
+  width: 25px;
+  height: 2px;
+  border-radius: 2px;
+  background: #5c46c6;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    border-radius: 2px;
+    background: #5c46c6;
+  }
+  z-index: 10;
+}
+
+.burgerMenuClose {
+  display: inline-block;
+  &::before {
+    top: -6px;
+    transition: all .2s ease;
+
+  }
+  &::after {
+    top: 6px;
+    transition: all .2s ease;
+
+  }
+}
+
+
+.burgerMenuOpen {
+  background-color: transparent;
+  &::before {
+    transform: rotate(45deg);
+    top: 0;
+    transition: all .2s ease;
+
+  }
+  &::after {
+    transform: rotate(-45deg);
+    top: 0;
+    transition: all .2s ease;
+
+  }
+}
