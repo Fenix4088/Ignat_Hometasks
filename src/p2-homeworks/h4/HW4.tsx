@@ -24,13 +24,15 @@ function HW4() {
             homeworks 4
 
             <div className={s.column}>
-                <SuperInputText
+                <div className={s.inputWrap}>
+                    <SuperInputText
                     value={text}
                     onChangeText={setText}
                     onEnter={showAlert}
                     error={error}
                     className={s.blue} // проверьте, рабоет ли смешивание классов
                 />
+                </div>
 
                 <SuperButton
                     red // пропсу с булевым значением не обязательно указывать true

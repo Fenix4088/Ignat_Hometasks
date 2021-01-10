@@ -14,6 +14,12 @@ function HW6() {
         setValue(restoreData);
     };
 
+    const actionName = ():HTMLDivElement => {
+        return  document.createElement("div")
+    }
+
+
+
     return (
         <div>
             <hr/>

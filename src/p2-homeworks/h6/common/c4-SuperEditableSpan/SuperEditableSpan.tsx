@@ -60,6 +60,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
                         onChange={onChangeCallback}
+                        error={""}
                         {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
                     />
                 ) : (

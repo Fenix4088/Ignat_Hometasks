@@ -2,6 +2,10 @@
     border-bottom: 5px solid green;
 }
 
+.inputWrap {
+    margin-bottom: 30px;
+}
+
 .column {
     position: relative;
     display: flex;
