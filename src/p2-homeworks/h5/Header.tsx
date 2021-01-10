@@ -23,6 +23,9 @@ function Header(props: HeaderType) {
         <NavLink to={"/junior-plus"} activeClassName={s.activeNavItem}>
           Junior +
         </NavLink>
+        <NavLink to={"/junior-plus"} activeClassName={s.activeNavItem}>
+          Еуые
+        </NavLink>
       </div>
     </nav>
   );
