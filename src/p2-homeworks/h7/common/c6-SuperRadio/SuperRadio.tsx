@@ -23,7 +23,7 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
     }
 
 
-    const mappedOptions: Array<JSX.Element> = options ? options.map((o, i) => ( // map options with key
+    const mappedOptions: Array<JSX.Element> = options ? options.map((o, i) => (
         <label key={name + "-" + i}>
             <Radio
                 className={s.radio}
