@@ -12,7 +12,6 @@ type DefaultInputPropsType = DetailedHTMLProps<
   HTMLInputElement
 >;
 
-
 // здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 type SuperInputTextPropsType = DefaultInputPropsType & {

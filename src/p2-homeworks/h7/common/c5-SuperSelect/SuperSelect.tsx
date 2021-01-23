@@ -1,4 +1,14 @@
-import React, { SelectHTMLAttributes, DetailedHTMLProps } from "react";
+import React, {
+  SelectHTMLAttributes,
+  DetailedHTMLProps,
+  ChangeEvent,
+} from "react";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import { createStyles, Theme } from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 type DefaultSelectPropsType = DetailedHTMLProps<
   SelectHTMLAttributes<HTMLSelectElement>,
@@ -10,6 +20,20 @@ type SuperSelectPropsType = DefaultSelectPropsType & {
   onChangeOption?: (option: string) => void;
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    formControl: {
+      marginBottom: theme.spacing(2),
+      minWidth: 120,
+    },
+    select: {
+      "&:after": {
+        borderBottom: "2px solid green",
+      },
+    },
+  })
+);
+
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
   options,
   onChange,
@@ -17,20 +41,35 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
   ...restProps
 }) => {
   const mappedOptions: Array<JSX.Element> = options
-    ? options.map((o, i) => <option key={i}>{o}</option>)
+    ? options.map((o, i) => (
+        <MenuItem key={i} value={o}>
+          {o}
+        </MenuItem>
+      ))
     : [];
 
-  const onChangeCallback = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>
-  ) => {
-    const { value } = e.currentTarget;
+  const onChangeCallback = (e: React.ChangeEvent<{ value: unknown }>) => {
+    const { value } = e.target;
     onChangeOption && onChangeOption(value as string);
   };
 
+  const classes = useStyles();
+
   return (
-    <select onChange={onChangeCallback} value={restProps.value} {...restProps}>
-      {mappedOptions}
-    </select>
+    <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">XYZ</InputLabel>
+        <Select
+          className={classes.select}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={restProps.value}
+          onChange={onChangeCallback}
+        >
+          {mappedOptions}
+        </Select>
+      </FormControl>
+    </div>
   );
 };
 
