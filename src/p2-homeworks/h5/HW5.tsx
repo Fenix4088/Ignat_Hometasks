@@ -19,9 +19,7 @@ function HW5() {
       <HashRouter>
 
         <BurgerMenu menuStatus={menuStatus} toggleMenu={toggleMenu}/>
-
         <Header menuStatus={menuStatus}/>
-
         <Routes />
 
       </HashRouter>
