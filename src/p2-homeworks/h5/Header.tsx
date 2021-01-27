@@ -1,12 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Styles.module.scss";
-import {PATH} from "./Routes";
+import { PATH } from "./Routes";
 
 type HeaderType = {
   menuStatus: boolean;
 };
-
 
 function Header(props: HeaderType) {
   const NavWrapperStyle = {
@@ -15,7 +14,7 @@ function Header(props: HeaderType) {
 
   return (
     <nav className={s.navContainer}>
-      <div className={s.navWrapper} style={NavWrapperStyle} >
+      <div className={s.navWrapper} style={NavWrapperStyle}>
         <NavLink to={PATH.PRE_JUNIOR} activeClassName={s.activeNavItem}>
           Pre-junior
         </NavLink>

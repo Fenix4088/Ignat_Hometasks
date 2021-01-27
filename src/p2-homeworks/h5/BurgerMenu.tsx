@@ -7,14 +7,14 @@ type BurgerMenuType = {
 };
 
 export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
+
   const burgerMenuFinalStyle =
     (props.menuStatus ? s.burgerMenuOpen : s.burgerMenuClose) +
     " " +
     s.burgerMenuCommon;
-  const toggleMenuCallback = (e:any) => {
-    console.log(props.menuStatus)
-    props.menuStatus? props.toggleMenu(false): props.toggleMenu(true);
-  }
+
+  const toggleMenuCallback = () => props.toggleMenu(!props.menuStatus);
+
   return (
     <div className={s.wrapper} onClick={toggleMenuCallback}>
       <span className={burgerMenuFinalStyle}></span>
