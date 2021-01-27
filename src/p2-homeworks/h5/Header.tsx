@@ -15,7 +15,7 @@ function Header(props: HeaderType) {
 
   return (
     <nav className={s.navContainer}>
-      <div className={s.navWrapper} style={NavWrapperStyle}>
+      <div className={s.navWrapper} style={NavWrapperStyle} >
         <NavLink to={PATH.PRE_JUNIOR} activeClassName={s.activeNavItem}>
           Pre-junior
         </NavLink>

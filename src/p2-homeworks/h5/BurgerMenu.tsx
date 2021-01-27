@@ -3,7 +3,7 @@ import s from "./Styles.module.scss";
 
 type BurgerMenuType = {
   menuStatus: boolean;
-  toggleMenu: () => void;
+  toggleMenu: (x: boolean) => void;
 };
 
 export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
@@ -11,7 +11,10 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
     (props.menuStatus ? s.burgerMenuOpen : s.burgerMenuClose) +
     " " +
     s.burgerMenuCommon;
-  const toggleMenuCallback = () => props.toggleMenu();
+  const toggleMenuCallback = (e:any) => {
+    console.log(props.menuStatus)
+    props.menuStatus? props.toggleMenu(false): props.toggleMenu(true);
+  }
   return (
     <div className={s.wrapper} onClick={toggleMenuCallback}>
       <span className={burgerMenuFinalStyle}></span>
