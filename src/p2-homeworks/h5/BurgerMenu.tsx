@@ -3,7 +3,7 @@ import s from "./Styles.module.scss";
 
 type BurgerMenuType = {
   menuStatus: boolean;
-  toggleMenu: (x: boolean) => void;
+  toggleMenu: (param: boolean) => void;
 };
 
 export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
