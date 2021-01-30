@@ -2,6 +2,14 @@ import React, {useState} from "react";
 import {homeWorkReducer} from "./bll/homeWorkReducer";
 import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
 
+type PersonT = {
+    _id: number;
+    name: string;
+    age: number;
+}
+
+export type InitialPeopleT = Array<PersonT>
+
 const initialPeople = [
     {_id: 0, name: "Кот", age: 3},
     {_id: 1, name: "Александр", age: 66},
@@ -11,31 +19,39 @@ const initialPeople = [
     {_id: 5, name: "Ирина", age: 55},
 ]
 
+
 function HW8() {
     const [people, setPeople] = useState(initialPeople);
 
     const finalPeople = people.map(p => (
         <div key={p._id}>
-            some name, age
+            {p.name + " " + p.age}
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: "sort", payload: "up"}))
+    const sortData = (e: React.MouseEvent<HTMLButtonElement>) => {
+        setPeople(homeWorkReducer(initialPeople, {type: "sort", payload: e.currentTarget.value}))
+    }
+
+    const getAdult = () => setPeople(homeWorkReducer(initialPeople, {type: "check", payload: "18"}))
 
     return (
         <div>
-            <hr/>
             homeworks 8
 
-            {/*should work (должно работать)*/}
 
             {finalPeople}
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
+            <div>
+                <SuperButton onClick={sortData} value={"up"}>sort up</SuperButton>
+            </div>
+            <div>
+                <SuperButton onClick={sortData} value={"down"}>sort down</SuperButton>
+            </div>
+            <div>
+                <SuperButton onClick={getAdult}>check 18</SuperButton>
+            </div>
 
-            check 18
 
-            <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativePeople/>*/}
             <hr/>
