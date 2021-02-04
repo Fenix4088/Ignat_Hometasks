@@ -9,6 +9,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import {v1} from "uuid";
 
 type DefaultSelectPropsType = DetailedHTMLProps<
   SelectHTMLAttributes<HTMLSelectElement>,
@@ -62,7 +63,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         <Select
           className={classes.select}
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          id={v1()}
           value={restProps.value}
           onChange={onChangeCallback}
         >

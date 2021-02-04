@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   createStyles,
-  Icon,
   makeStyles,
   Table,
   TableBody,
