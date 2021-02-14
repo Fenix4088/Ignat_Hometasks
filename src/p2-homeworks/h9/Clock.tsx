@@ -66,8 +66,8 @@ function Clock() {
     border:"1px, solid, #fff"
   }
   const clockS: CSSProperties = {
-      fontSize: "30px"
-  }
+    fontSize: "30px",
+  };
 
 
   return (
