@@ -1,4 +1,4 @@
-import React, {ChangeEvent, PointerEvent} from "react";
+import React, {ChangeEvent, useCallback} from "react";
 import {Slider, withStyles} from "@material-ui/core";
 
 type SuperDoubleRangePropsType = {
@@ -54,9 +54,9 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = ({
   rangeValues,
 }) => {
 
-  const handleChange = (event: ChangeEvent<{}>, value: any) => {
+  const handleChange = useCallback((event: ChangeEvent<{}>, value: any) => {
     onChangeRange && onChangeRange(value);
-  };
+  }, [onChangeRange]);
 
   return (
     <>

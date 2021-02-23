@@ -1,21 +1,19 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import SuperRange from "./common/c7-SuperRange/SuperRange";
 import SuperDoubleRange from "./common/c8-SuperDoubleRange/SuperDoubleRange";
-import AlternativeSuperDoubleRange from "./common/c8-SuperDoubleRange/AlternativeSuperDoubleRange";
 
 function HW11() {
     const [value1, setValue1] = useState(0);
     const [value2, setValue2] = useState(100);
 
-    const changeLeftRange = (value: number):void => {
+    //! Игнат, подскажи, нужно ли тут в зависимости для useCallback передавать эти сэты???(setValue1, setValue2)
+    const changeLeftRange = useCallback((value: number):void => {
         setValue1(value);
-    }
-
-    const onChangeRange = (values: number[]):void => {
-        console.log()
+    }, [setValue1])
+    const onChangeRange = useCallback((values: number[]):void => {
         setValue1(values[0]);
         setValue2(values[1]);
-    }
+    }, [setValue1, setValue2])
 
     return (
         <div>
@@ -42,7 +40,6 @@ function HW11() {
             <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeSuperRange/>*/}
-            <AlternativeSuperDoubleRange/>
             <hr/>
         </div>
     );
