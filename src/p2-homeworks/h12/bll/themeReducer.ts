@@ -1,14 +1,15 @@
 type initStateT  = Array<ThemeT>
 
-type ThemeT = {
+export type ThemeT = {
     themeName: "some" | "dark" | "red";
     isActive: boolean;
+    textColor: "darkslateblue" | "aliceblue" | "aqua"
 }
 
 const initState: initStateT = [
-    {themeName: "some", isActive: true},
-    {themeName: "dark", isActive: false},
-    {themeName: "red", isActive: false},
+    {themeName: "some", textColor: "darkslateblue", isActive: true},
+    {themeName: "dark", textColor: "aliceblue", isActive: false},
+    {themeName: "red", textColor: "aqua", isActive: false},
 ];
 
 enum ActionsNames {
