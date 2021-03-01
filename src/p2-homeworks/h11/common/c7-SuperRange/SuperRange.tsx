@@ -10,7 +10,7 @@ type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы
     onChangeRange?: (value: number) => void
 };
 
-const SuperRange: React.FC<SuperRangePropsType> = (
+const SuperRange: React.FC<SuperRangePropsType> = React.memo((
     {
         type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
         onChange, onChangeRange,
@@ -37,6 +37,6 @@ const SuperRange: React.FC<SuperRangePropsType> = (
             />
         </>
     );
-}
+})
 
 export default SuperRange;

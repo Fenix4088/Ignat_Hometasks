@@ -49,7 +49,7 @@ function valuetext(value: number) {
   return `${value}°C`;
 }
 
-const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = ({
+const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo(({
   onChangeRange,
   rangeValues,
 }) => {
@@ -71,6 +71,6 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = ({
 
     </>
   );
-};
+});
 
 export default SuperDoubleRange;
