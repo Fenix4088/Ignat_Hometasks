@@ -1,5 +1,5 @@
 export const RequestAPI = {
-  getData(value: boolean) {
+  getData(value: boolean | string) {
     return fetch("https://neko-cafe-back.herokuapp.com/auth/test", {
       method: "POST",
       body: JSON.stringify({
