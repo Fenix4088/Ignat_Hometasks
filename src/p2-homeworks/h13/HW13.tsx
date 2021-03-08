@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RequestAPI } from "./RequestAPI";
+import {RequestAPI} from "./RequestAPI";
 import SuperCheckbox from "../h4/common/c3-SuperCheckbox/SuperCheckbox";
 import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
 

@@ -1,5 +1,6 @@
+
 export const RequestAPI = {
-  getData(value: boolean | string) {
+  getData(value: boolean | string):Promise<Response> {
     return fetch("https://neko-cafe-back.herokuapp.com/auth/test", {
       method: "POST",
       body: JSON.stringify({
@@ -11,3 +12,4 @@ export const RequestAPI = {
     });
   },
 };
+
